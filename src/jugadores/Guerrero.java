@@ -3,8 +3,9 @@ package jugadores;
 public class Guerrero extends Jugador {
     protected int resist;
 
-    public Guerrero(String nom, int nivel, int hp, int resist) {
-        super(nom, nivel, hp);
-        this.resist = 0;
+    public Guerrero(String nom) {
+        super(nom, 1, 15, false, 3);
+        this.resist = 1;
     }
+
 }
