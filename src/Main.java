@@ -1,30 +1,66 @@
+import jugadores.Bestia;
+import jugadores.Guerrero;
 import jugadores.Jugador;
+import jugadores.Mago;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Scanner miau = new Scanner(System.in);
-        String nombre;
-        String clase;
+
+        String nombre1;
+        String nombre2;
+        int clase;
         System.out.println("¡Bienvenido!");
         System.out.println("Escribe tu nombre Jugador1:");
-        nombre = miau.next();
+        nombre1 = miau.next();
         System.out.println("¿Que clase escoges?");
         System.out.println("1: Guerrero");
         System.out.println("2: Mago");
         System.out.println("3: Bestia");
-        clase = miau.next();
-        if (clase.equals(1)){
-            clase = "Guerrero";
+        clase = miau.nextInt();
+/*        switch (clase){
+            case 1:
+                Guerrero j1 = new Guerrero(nombre);
+                break;
+            case 2:
+                Mago j1 = new Mago(nombre);
+                break;
+            case 3:
+                Bestia j1 = new Bestia(nombre);
+                break;
         }
-        if (clase.equals(2)){
-            clase = "Mago";
+*/
+        System.out.println("Ahora, el oponente");
+        System.out.println("Escribe tu nombre Jugador2:");
+        nombre2 = miau.next();
+        System.out.println("¿Que clase escoges?");
+        System.out.println("1: Guerrero");
+        System.out.println("2: Mago");
+        System.out.println("3: Bestia");
+        clase = miau.nextInt();
+        /*
+        if (clase == 1){
+            Guerrero j2 = new Guerrero(nombre);
         }
-        if (nombre.equals(3)){
-            clase
+        if (clase==2){
+            Mago j2 = new Mago(nombre);
         }
+        if (clase == 3){
+            Bestia j2 = new Bestia(nombre);
+        }*/
+    }
+    public void batalla(String nombre1, String nombre2){
+        Scanner inp = new Scanner(System.in);
+        boolean pass;
+        do {
+            pass = false;
+            System.out.println(nombre1 + "¿Qué quieres hacer");
+            int ataque = inp.nextInt();
+            switch (ataque){
 
-
+            }
+        }while ();
     }
 }

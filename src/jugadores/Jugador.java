@@ -56,6 +56,13 @@ public class Jugador {
     public void setDano(int dano) {
         this.dano = dano;
     }
+
 // Acciones
+    public void check (){
+        System.out.println(this.nom);
+        System.out.println(this.hp);
+        System.out.println(this.dano);
+        System.out.println(this.nivel);
+    }
 
 }
