@@ -8,7 +8,7 @@ public class Jugador {
     protected boolean ven;
     protected int dano;
 
-    public Jugador(String nom, int nivel, int hp, boolean ven, int daño) {
+    public Jugador(String nom, int nivel, int hp, boolean ven, int dano) {
         this.nom = nom;
         this.nivel = nivel;
         this.hp = hp;
@@ -59,10 +59,14 @@ public class Jugador {
 
 // Acciones
     public void check (){
-        System.out.println(this.nom);
-        System.out.println(this.hp);
-        System.out.println(this.dano);
-        System.out.println(this.nivel);
+        System.out.println("Nombre: "+nom);
+        System.out.println("Vida restante: "+hp);
+        System.out.println("Ataque: "+dano);
+        System.out.println("Nivel: "+nivel);
+    }
+    public void atacar(int ataque){
+        System.out.println("Ataca");
+        this.hp-= ataque;
     }
 
 }

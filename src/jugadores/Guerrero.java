@@ -8,4 +8,22 @@ public class Guerrero extends Jugador {
         this.resist = 1;
     }
 
+    public int getResist() {
+        return resist;
+    }
+
+    public void setResist(int resist) {
+        this.resist = resist;
+    }
+
+    // Acciones
+
+
+    @Override
+    public void check() {
+        System.out.println("El guerrero observa con atención...");
+        super.check();
+        System.out.println("Resistencia: " +resist);
+
+    }
 }

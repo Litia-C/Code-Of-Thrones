@@ -6,7 +6,7 @@ import jugadores.Mago;
 import java.util.Scanner;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner miau = new Scanner(System.in);
 
         String nombre1;
@@ -50,17 +50,23 @@ public class Main {
         if (clase == 3){
             Bestia j2 = new Bestia(nombre);
         }*/
+        batalla(nombre1, nombre2);
     }
-    public void batalla(String nombre1, String nombre2){
+    public static void batalla(String nombre1, String nombre2){
         Scanner inp = new Scanner(System.in);
+        Guerrero j1 = new Guerrero(nombre1);
+        Mago j2 = new Mago(nombre2);
         boolean pass;
         do {
             pass = false;
-            System.out.println(nombre1 + "¿Qué quieres hacer");
+            System.out.println(nombre1 + " ¿Qué quieres hacer");
+            System.out.println("1: Inspeccionar enemigo");
             int ataque = inp.nextInt();
-            switch (ataque){
 
+            switch (ataque){
+                case 1 -> j2.check();
+                case 2 -> j2.atacar(j1.getDano());
             }
-        }while ();
+        }while (!pass);
     }
 }
