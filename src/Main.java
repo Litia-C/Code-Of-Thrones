@@ -11,7 +11,8 @@ public class Main {
 
         String nombre1;
         String nombre2;
-        int clase;
+        String clase1 = null;
+        String clase2 = null;
         System.out.println("¡Bienvenido!");
         System.out.println("Escribe tu nombre Jugador1:");
         nombre1 = miau.next();
@@ -19,19 +20,19 @@ public class Main {
         System.out.println("1: Guerrero");
         System.out.println("2: Mago");
         System.out.println("3: Bestia");
-        clase = miau.nextInt();
-/*        switch (clase){
+        int clase = miau.nextInt();
+        switch (clase){
             case 1:
-                Guerrero j1 = new Guerrero(nombre);
+                clase1 = "guerrero";
                 break;
             case 2:
-                Mago j1 = new Mago(nombre);
+                clase1 = "mago";
                 break;
             case 3:
-                Bestia j1 = new Bestia(nombre);
+                clase1 = "bestia";
                 break;
         }
-*/
+
         System.out.println("Ahora, el oponente");
         System.out.println("Escribe tu nombre Jugador2:");
         nombre2 = miau.next();
@@ -40,19 +41,18 @@ public class Main {
         System.out.println("2: Mago");
         System.out.println("3: Bestia");
         clase = miau.nextInt();
-        /*
         if (clase == 1){
-            Guerrero j2 = new Guerrero(nombre);
+            clase2 = "guerrero";
         }
         if (clase==2){
-            Mago j2 = new Mago(nombre);
+            clase2 = "mago";
         }
         if (clase == 3){
-            Bestia j2 = new Bestia(nombre);
-        }*/
-        batalla(nombre1, nombre2);
+            clase2 = "bestia";
+        }
+        batalla(nombre1, nombre2, clase1, clase2);
     }
-    public static void batalla(String nombre1, String nombre2){
+    public static void batalla(String nombre1, String nombre2, String clase1, String clase2){
         Scanner inp = new Scanner(System.in);
         Guerrero j1 = new Guerrero(nombre1);
         Mago j2 = new Mago(nombre2);
@@ -60,11 +60,13 @@ public class Main {
         do {
             pass = false;
             System.out.println(nombre1 + " ¿Qué quieres hacer");
-            System.out.println("1: Inspeccionar enemigo");
+            System.out.println("1: Inspeccionar enemigo (0)");
+            System.out.println("2: Atacar sin más (0)");
+            System.out.println("3: ");
             int ataque = inp.nextInt();
 
             switch (ataque){
-                case 1 -> j2.check();
+                case 1 -> j2.check(clase1);
                 case 2 -> j2.atacar(j1.getDano());
             }
         }while (!pass);

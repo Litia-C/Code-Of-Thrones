@@ -7,13 +7,15 @@ public class Jugador {
     protected int hp;
     protected boolean ven;
     protected int dano;
+    protected String tipo;
 
-    public Jugador(String nom, int nivel, int hp, boolean ven, int dano) {
+    public Jugador(String nom, int nivel, int hp, boolean ven, int dano, String tipo) {
         this.nom = nom;
         this.nivel = nivel;
         this.hp = hp;
         this.ven = ven;
         this.dano = dano;
+        this.tipo = tipo;
     }
 
     // Get-Set
@@ -58,7 +60,13 @@ public class Jugador {
     }
 
 // Acciones
-    public void check (){
+    public void check (String clase){
+        switch (clase){
+            case "guerrero" -> System.out.println("Te concentras en tu enemigo...");
+            case "mago" -> System.out.println("Observas dentro de tu orbe...");
+            case "bestia" -> System.out.println("Olisqueas a tu adversario...");
+        }
+        System.out.println("Estadísticas del adversario:");
         System.out.println("Nombre: "+nom);
         System.out.println("Vida restante: "+hp);
         System.out.println("Ataque: "+dano);
@@ -68,5 +76,6 @@ public class Jugador {
         System.out.println("Ataca");
         this.hp-= ataque;
     }
+
 
 }

@@ -4,7 +4,7 @@ public class Guerrero extends Jugador {
     protected int resist;
 
     public Guerrero(String nom) {
-        super(nom, 1, 15, false, 3);
+        super(nom, 1, 15, false, 3, "guerrero");
         this.resist = 1;
     }
 
@@ -19,11 +19,5 @@ public class Guerrero extends Jugador {
     // Acciones
 
 
-    @Override
-    public void check() {
-        System.out.println("El guerrero observa con atención...");
-        super.check();
-        System.out.println("Resistencia: " +resist);
 
-    }
 }
