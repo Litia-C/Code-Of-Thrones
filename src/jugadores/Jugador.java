@@ -62,11 +62,11 @@ public abstract class Jugador {
     }
 
 // Acciones
-    public void check (String clase){
+    public void check (Clases clase){
         switch (clase){
-            case "guerrero" -> System.out.println("Te concentras en tu enemigo...");
-            case "mago" -> System.out.println("Observas dentro de tu orbe...");
-            case "bestia" -> System.out.println("Olisqueas a tu adversario...");
+            case Clases.guerrero -> System.out.println("Te concentras en tu enemigo...");
+            case Clases.mago -> System.out.println("Observas dentro de tu orbe...");
+            case Clases.bestia -> System.out.println("Olisqueas a tu adversario...");
         }
         System.out.println("Estadísticas del adversario:");
         System.out.println("Nombre: "+nom);

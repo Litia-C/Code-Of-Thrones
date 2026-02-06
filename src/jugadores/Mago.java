@@ -22,7 +22,7 @@ public class Mago extends Jugador implements Acciones{
 
 
     @Override
-    public void check(String clase) {
+    public void check(Clases clase) {
         super.check(clase);
         System.out.println("Maná: " + mana);
     }
