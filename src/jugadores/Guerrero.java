@@ -24,7 +24,8 @@ public class Guerrero extends Jugador implements Acciones {
     @Override
     public void check(Clases clase) {
         super.check(clase);
-        System.out.println("Resistencia: " + resist);
+        System.out.print("Resistencia: " + resist);
+        System.out.println();
     }
 
     @Override

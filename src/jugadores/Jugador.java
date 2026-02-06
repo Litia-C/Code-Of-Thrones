@@ -73,6 +73,7 @@ public abstract class Jugador {
         System.out.println("Vida restante: "+hp);
         System.out.println("Ataque: "+dano);
         System.out.println("Nivel: "+nivel);
+        System.out.println();
     }
     public void recibirDano(int ataque){
         System.out.println("Ataca");

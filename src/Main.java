@@ -75,19 +75,21 @@ public class Main {
             if (vivo) {
                 do {
                     pass = false;
-                    System.out.println("HP: " + j1.getHp());
+                    System.out.print(nombre1);
+                    System.out.print(" HP: " + j1.getHp());
+                    System.out.println();
                     System.out.println(nombre1 + " ¿Qué quieres hacer");
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
-                    System.out.println("3: ");
+                    System.out.println("3: No hacer nada");
                     int acto = act.nextInt();
-
+                    int ataque = 0;
                     switch (acto) {
                         case 1:
                             j2.check(clase1);
                             break;
                         case 2:
-                            j2.recibirDano(j1.getDano());
+                            j2.setHp(j1.atacar(j2.getHp()));
                             pass = true;
                             break;
                         case 3:
@@ -95,6 +97,7 @@ public class Main {
                             pass = true;
                     }
                 } while (!pass);
+
                 if (j1.getHp() < 1 || j2.getHp() < 1) {
                     vivo = false;
                 }
@@ -102,7 +105,9 @@ public class Main {
             if (vivo) {
                 do {
                     pass = false;
-                    System.out.println("HP: " + j2.getHp());
+                    System.out.print(nombre2);
+                    System.out.print(" HP: " + j2.getHp());
+                    System.out.println();
                     System.out.println(nombre2 + " ¿Qué quieres hacer");
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
@@ -114,7 +119,7 @@ public class Main {
                             j1.check(clase2);
                             break;
                         case 2:
-                            j1.recibirDano(j2.getDano());
+                            j1.setHp(j2.atacar(j1.getHp()));
                             pass = true;
                             break;
                         case 3:
