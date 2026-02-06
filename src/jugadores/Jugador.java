@@ -1,6 +1,8 @@
 package jugadores;
 
-public class Jugador {
+import java.util.Scanner;
+
+public abstract class Jugador {
 
     protected String nom;
     protected int nivel;
@@ -72,7 +74,7 @@ public class Jugador {
         System.out.println("Ataque: "+dano);
         System.out.println("Nivel: "+nivel);
     }
-    public void atacar(int ataque){
+    public void recibirDano(int ataque){
         System.out.println("Ataca");
         this.hp-= ataque;
     }
@@ -80,5 +82,5 @@ public class Jugador {
         System.out.println("No haces nada (Supongo)");
     }
 
-
+    public abstract int atacar(int hpEnemigo);
 }

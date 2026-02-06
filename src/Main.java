@@ -78,6 +78,7 @@ public class Main {
             if (vivo) {
                 do {
                     pass = false;
+                    System.out.println("HP: " + j1.getHp());
                     System.out.println(nombre1 + " ¿Qué quieres hacer");
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
@@ -89,9 +90,12 @@ public class Main {
                             j2.check(clase1);
                             break;
                         case 2:
-                            j2.atacar(j1.getDano());
+                            j2.recibirDano(j1.getDano());
                             pass = true;
                             break;
+                        case 3:
+                            j1.esperar();
+                            pass = true;
                     }
                 } while (!pass);
                 if (j1.getHp() < 1 || j2.getHp() < 1) {
@@ -101,10 +105,11 @@ public class Main {
             if (vivo) {
                 do {
                     pass = false;
+                    System.out.println("HP: " + j2.getHp());
                     System.out.println(nombre2 + " ¿Qué quieres hacer");
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
-                    System.out.println("3: ");
+                    System.out.println("3: No hacer nada");
                     int ataque = act.nextInt();
 
                     switch (ataque) {
@@ -112,9 +117,12 @@ public class Main {
                             j1.check(clase2);
                             break;
                         case 2:
-                            j1.atacar(j2.getDano());
+                            j1.recibirDano(j2.getDano());
                             pass = true;
                             break;
+                        case 3:
+                            j2.esperar();
+                            pass = true;
                     }
                 } while (!pass);
                 if (j1.getHp() < 1 || j2.getHp() < 1) {
