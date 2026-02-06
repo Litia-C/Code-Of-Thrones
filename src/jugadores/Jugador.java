@@ -9,9 +9,9 @@ public abstract class Jugador {
     protected int hp;
     protected boolean ven;
     protected int dano;
-    protected String tipo;
+    protected Clases tipo;
 
-    public Jugador(String nom, int nivel, int hp, boolean ven, int dano, String tipo) {
+    public Jugador(String nom, int nivel, int hp, boolean ven, int dano, Clases tipo) {
         this.nom = nom;
         this.nivel = nivel;
         this.hp = hp;

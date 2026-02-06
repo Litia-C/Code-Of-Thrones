@@ -6,7 +6,7 @@ public class Mago extends Jugador implements Acciones{
     private int mana;
 
     public Mago(String nom){
-        super(nom, 1, 10, false, 2, "mago");
+        super(nom, 1, 10, false, 2, Clases.mago);
         this.mana = 10;
     }
 

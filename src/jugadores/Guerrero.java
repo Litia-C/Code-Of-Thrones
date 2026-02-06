@@ -6,7 +6,7 @@ public class Guerrero extends Jugador implements Acciones {
     protected int resist;
 
     public Guerrero(String nom) {
-        super(nom, 1, 15, false, 3, "guerrero");
+        super(nom, 1, 15, false, 3, Clases.guerrero);
         this.resist = 1;
     }
 

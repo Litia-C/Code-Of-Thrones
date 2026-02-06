@@ -1,7 +1,4 @@
-import jugadores.Bestia;
-import jugadores.Guerrero;
-import jugadores.Jugador;
-import jugadores.Mago;
+import jugadores.*;
 
 import java.util.Scanner;
 
@@ -11,8 +8,8 @@ public class Main {
 
         String nombre1;
         String nombre2;
-        String clase1 = null;
-        String clase2 = null;
+        Clases clase1 = null;
+        Clases clase2 = null;
         System.out.println("¡Bienvenido!");
         System.out.println("Escribe tu nombre Jugador1:");
         nombre1 = miau.next();
@@ -23,13 +20,13 @@ public class Main {
         int clase = miau.nextInt();
         switch (clase){
             case 1:
-                clase1 = "guerrero";
+                clase1 = Clases.guerrero;
                 break;
             case 2:
-                clase1 = "mago";
+                clase1 = Clases.mago;
                 break;
             case 3:
-                clase1 = "bestia";
+                clase1 = Clases.bestia;
                 break;
         }
 
@@ -42,30 +39,30 @@ public class Main {
         System.out.println("3: Bestia");
         clase = miau.nextInt();
         if (clase == 1){
-            clase2 = "guerrero";
+            clase2 = Clases.guerrero;
         }
         if (clase==2){
-            clase2 = "mago";
+            clase2 = Clases.mago;
         }
         if (clase == 3){
-            clase2 = "bestia";
+            clase2 = Clases.bestia;
         }
         batalla(nombre1, nombre2, clase1, clase2);
     }
-    public static void batalla(String nombre1, String nombre2, String clase1, String clase2){
+    public static void batalla(String nombre1, String nombre2, Clases clase1, Clases clase2){
         Jugador j1;
         Jugador j2;
         switch (clase1){
-            case "guerrero" -> j1 = new Guerrero(nombre1);
-            case "mago" -> j1 = new Mago(nombre1);
-            case "bestia" -> j1 = new Bestia(nombre1);
+            case Clases.guerrero -> j1 = new Guerrero(nombre1);
+            case Clases.mago -> j1 = new Mago(nombre1);
+            case Clases.bestia -> j1 = new Bestia(nombre1);
             default ->throw new IllegalStateException("Unexpected value: " + clase1);
         }
         j1.setNom(nombre1);
         switch (clase2){
-            case "guerrero" -> j2 = new Guerrero(nombre1);
-            case "mago" -> j2 = new Mago(nombre1);
-            case "bestia" -> j2 = new Bestia(nombre1);
+            case Clases.guerrero -> j2 = new Guerrero(nombre1);
+            case Clases.mago -> j2 = new Mago(nombre1);
+            case Clases.bestia -> j2 = new Bestia(nombre1);
             default -> throw new IllegalStateException("Unexpected value: " + clase2);
         }
         j2.setNom(nombre2);
@@ -83,9 +80,9 @@ public class Main {
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
                     System.out.println("3: ");
-                    int ataque = act.nextInt();
+                    int acto = act.nextInt();
 
-                    switch (ataque) {
+                    switch (acto) {
                         case 1:
                             j2.check(clase1);
                             break;
@@ -110,9 +107,9 @@ public class Main {
                     System.out.println("1: Inspeccionar enemigo (0)");
                     System.out.println("2: Atacar sin más (0)");
                     System.out.println("3: No hacer nada");
-                    int ataque = act.nextInt();
+                    int acto = act.nextInt();
 
-                    switch (ataque) {
+                    switch (acto) {
                         case 1:
                             j1.check(clase2);
                             break;
