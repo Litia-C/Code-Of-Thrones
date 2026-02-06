@@ -81,6 +81,7 @@ public abstract class Jugador {
     }
     public void esperar(){
         System.out.println("No haces nada (Supongo)");
+        System.out.println();
     }
 
     public abstract int atacar(int hpEnemigo);

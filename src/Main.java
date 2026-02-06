@@ -79,8 +79,8 @@ public class Main {
                     System.out.print(" HP: " + j1.getHp());
                     System.out.println();
                     System.out.println(nombre1 + " ¿Qué quieres hacer");
-                    System.out.println("1: Inspeccionar enemigo (0)");
-                    System.out.println("2: Atacar sin más (0)");
+                    System.out.println("1: Inspeccionar (No pasa turno)");
+                    System.out.println("2: Habilidades");
                     System.out.println("3: No hacer nada");
                     int acto = act.nextInt();
                     int ataque = 0;
@@ -109,8 +109,8 @@ public class Main {
                     System.out.print(" HP: " + j2.getHp());
                     System.out.println();
                     System.out.println(nombre2 + " ¿Qué quieres hacer");
-                    System.out.println("1: Inspeccionar enemigo (0)");
-                    System.out.println("2: Atacar sin más (0)");
+                    System.out.println("1: Inspeccionar (No pasa turno)");
+                    System.out.println("2: Habilidades");
                     System.out.println("3: No hacer nada");
                     int acto = act.nextInt();
 
@@ -132,7 +132,12 @@ public class Main {
                 }
             }
         }while (vivo);
-
+        if (j1.getHp() < 1){
+            System.out.println("Ha ganado: " + nombre2);
+        }
+        if (j2.getHp() < 1){
+            System.out.println("Ha ganado: " + nombre1);
+        }
         System.out.println("Fin de la partida");
 
     }
