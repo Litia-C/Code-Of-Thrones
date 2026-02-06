@@ -19,5 +19,9 @@ public class Guerrero extends Jugador {
     // Acciones
 
 
-
+    @Override
+    public void check(String clase) {
+        super.check(clase);
+        System.out.println("Resistencia: " + resist);
+    }
 }

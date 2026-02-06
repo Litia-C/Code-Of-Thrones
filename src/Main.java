@@ -53,22 +53,77 @@ public class Main {
         batalla(nombre1, nombre2, clase1, clase2);
     }
     public static void batalla(String nombre1, String nombre2, String clase1, String clase2){
-        Scanner inp = new Scanner(System.in);
-        Guerrero j1 = new Guerrero(nombre1);
-        Mago j2 = new Mago(nombre2);
-        boolean pass;
-        do {
-            pass = false;
-            System.out.println(nombre1 + " ¿Qué quieres hacer");
-            System.out.println("1: Inspeccionar enemigo (0)");
-            System.out.println("2: Atacar sin más (0)");
-            System.out.println("3: ");
-            int ataque = inp.nextInt();
+        Jugador j1;
+        Jugador j2;
+        switch (clase1){
+            case "guerrero" -> j1 = new Guerrero(nombre1);
+            case "mago" -> j1 = new Mago(nombre1);
+            case "bestia" -> j1 = new Bestia(nombre1);
+            default ->throw new IllegalStateException("Unexpected value: " + clase1);
+        }
+        j1.setNom(nombre1);
+        switch (clase2){
+            case "guerrero" -> j2 = new Guerrero(nombre1);
+            case "mago" -> j2 = new Mago(nombre1);
+            case "bestia" -> j2 = new Bestia(nombre1);
+            default -> throw new IllegalStateException("Unexpected value: " + clase2);
+        }
+        j2.setNom(nombre2);
+        Scanner act = new Scanner(System.in);
 
-            switch (ataque){
-                case 1 -> j2.check(clase1);
-                case 2 -> j2.atacar(j1.getDano());
+        boolean pass;
+        boolean vivo = true;
+        do {
+
+            if (vivo) {
+                do {
+                    pass = false;
+                    System.out.println(nombre1 + " ¿Qué quieres hacer");
+                    System.out.println("1: Inspeccionar enemigo (0)");
+                    System.out.println("2: Atacar sin más (0)");
+                    System.out.println("3: ");
+                    int ataque = act.nextInt();
+
+                    switch (ataque) {
+                        case 1:
+                            j2.check(clase1);
+                            break;
+                        case 2:
+                            j2.atacar(j1.getDano());
+                            pass = true;
+                            break;
+                    }
+                } while (!pass);
+                if (j1.getHp() < 1 || j2.getHp() < 1) {
+                    vivo = false;
+                }
             }
-        }while (!pass);
+            if (vivo) {
+                do {
+                    pass = false;
+                    System.out.println(nombre2 + " ¿Qué quieres hacer");
+                    System.out.println("1: Inspeccionar enemigo (0)");
+                    System.out.println("2: Atacar sin más (0)");
+                    System.out.println("3: ");
+                    int ataque = act.nextInt();
+
+                    switch (ataque) {
+                        case 1:
+                            j1.check(clase2);
+                            break;
+                        case 2:
+                            j1.atacar(j2.getDano());
+                            pass = true;
+                            break;
+                    }
+                } while (!pass);
+                if (j1.getHp() < 1 || j2.getHp() < 1) {
+                    vivo = false;
+                }
+            }
+        }while (vivo);
+
+        System.out.println("Fin de la partida");
+
     }
 }

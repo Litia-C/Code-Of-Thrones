@@ -76,6 +76,9 @@ public class Jugador {
         System.out.println("Ataca");
         this.hp-= ataque;
     }
+    public void esperar(){
+        System.out.println("No haces nada (Supongo)");
+    }
 
 
 }

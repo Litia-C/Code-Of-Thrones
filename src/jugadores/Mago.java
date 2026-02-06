@@ -12,7 +12,8 @@ public class Mago extends Jugador{
 
 
     @Override
-    public void atacar(int ataque) {
-        super.atacar(ataque);
+    public void check(String clase) {
+        super.check(clase);
+        System.out.println("Maná: " + mana);
     }
 }
